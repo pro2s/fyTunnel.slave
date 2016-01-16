@@ -1,0 +1,4 @@
+queue:
+- name: psync
+  rate: 3/m
+  max_concurrent_requests: 1

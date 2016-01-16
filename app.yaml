@@ -1,0 +1,32 @@
+application: photooslave
+version: alfa1
+runtime: python27
+api_version: 1
+threadsafe: no
+builtins:
+- remote_api: on
+- appstats: on 
+
+handlers:
+- url: /_stats.*
+  script: google.appengine.ext.appstats.ui.app
+  
+- url: /remote_api
+  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+  login: admin
+  
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /.*
+  script: main.app
+
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+- name: PIL
+  version: "1.1.7"

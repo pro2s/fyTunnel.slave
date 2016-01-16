@@ -1,0 +1,5 @@
+cron:
+- description: daily task
+  url: /clear/
+  schedule: every day 00:05
+  timezone: US/Pacific
